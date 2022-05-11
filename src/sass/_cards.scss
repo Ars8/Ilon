@@ -1,0 +1,82 @@
+.cards {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: start;
+  margin: 100px;
+  &__wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+	  align-items: center;
+  }
+  h1 {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 51px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 50px;
+  }
+  .card__item {
+    width: 320px;
+    height: 620px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    margin: 5px;
+    &__text {
+      height: 310px;
+      width: 276px;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      h3 {
+        font-family: "Mulish";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 26px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #171717;
+      }
+      h4 {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 26px;
+        color: #171717;
+      }
+      p {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        color: #666666;
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+    button {
+      height: 50px;
+      width: 276px;
+      background: #171717;
+      font-family: "Mulish";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+  }
+}

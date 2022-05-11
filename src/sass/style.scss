@@ -1,0 +1,40 @@
+@import 'variables';
+
+* {
+	font-family: 'Montserrat', sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: none;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+	&:visited {
+		text-decoration: none;
+		color: inherit;
+	}	
+	&:hover {
+		text-decoration: none;
+		color: inherit;
+	}	
+	&:focus {
+		text-decoration: none;
+		color: inherit;
+	}	
+	&:active{
+		text-decoration: none;
+		color: inherit;
+	}
+}
+
+.container {
+	width: 100vw;
+	height: 100%;
+	background: $main-color;
+	padding-bottom: 256px;
+}
+@import 'header';
+@import 'mainSlider';
+@import 'cards';
+@import 'modal';
