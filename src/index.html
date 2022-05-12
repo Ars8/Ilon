@@ -30,7 +30,7 @@
           <button class="header__buttons-call">
             <img src="assets/icons/phone.svg" alt />
           </button>
-          <button class="header__buttons-query">
+          <button class="header__buttons-query query">
             <span>ОСТАВИТЬ ЗАЯВКУ</span>
           </button>
           <span class="header__buttons-dummy"></span>
@@ -43,7 +43,7 @@
             >В прошлый четверг все офигели от полета DOGIE COIN на марс.</span
           >
           <div class="header__buttons">
-            <button class="header__buttons-query">
+            <button class="header__buttons-query query">
               <span>ОСТАВИТЬ ЗАЯВКУ</span>
             </button>
             <span class="header__buttons-dummy"></span>
@@ -55,7 +55,7 @@
             >Все в шоке, я потерял все деньги</span
           >
           <div class="header__buttons">
-            <button class="header__buttons-query">
+            <button class="header__buttons-query query">
               <span>ОСТАВИТЬ ЗАЯВКУ</span>
             </button>
             <span class="header__buttons-dummy"></span>
@@ -67,7 +67,7 @@
             >Все в шоке, я снова богат</span
           >
           <div class="header__buttons">
-            <button class="header__buttons-query">
+            <button class="header__buttons-query query">
               <span>ОСТАВИТЬ ЗАЯВКУ</span>
             </button>
             <span class="header__buttons-dummy"></span>
@@ -231,46 +231,50 @@
         <span class="header__buttons-dummy"></span>
       </div>
     </div>
-    <div class="modal__wrapp" data-modal>
-      <form class="modal">
-        <img class="modal__img" src="./assets/img/ModalRectangle5.png" alt />
-        <div class="modal__input">
-          <div class="modal__input__tittle">
-            Оставьте заявку
-            <div class="modal__input__tittle__close">
-              <img src="assets/icons/ant-design_close-outlined.svg" alt/>
-            </div>
+    <div class="popup-design fixed-overlay__modal" data-modal>
+      <div class="popup-dialog">
+          <div>
+            <form class="modal">
+              <img class="modal__img" src="./assets/img/ModalRectangle5.png" alt />
+              <div class="modal__input">
+                <div class="modal__input__tittle">
+                  Оставьте заявку
+                  <div class="modal__input__tittle__close">
+                    <img src="assets/icons/ant-design_close-outlined.svg" alt />
+                  </div>
+                </div>
+                <div class="modal__input__subtittle">
+                  Оставьте заявку и наш менеджер свяжется с вами в течение 10 -15
+                  минут
+                </div>
+                <div class="modal__main__form">
+                  <input type="text" name="name" placeholder="Ваше имя*" required />
+                  <input type="text" name="email" placeholder="E-mail*" required />
+                  <input type="text" name="phone" placeholder="+7(___)" />
+                  <textarea
+                    name="message"
+                    placeholder="Ваш вопрос*"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div class="modal__main__button">
+                  <div class="header__buttons">
+                    <button class="header__buttons-query query">
+                      <span>ОСТАВИТЬ ЗАЯВКУ</span>
+                    </button>
+                    <span class="header__buttons-dummy"></span>
+                  </div>
+                  <span class="policy">
+                    Нажимая на кнопку “Оставить заявку” вы соглашаетесь <br /><a
+                      href="#"
+                      >с “Пользовательским соглашением”</a
+                    >
+                  </span>
+                </div>
+              </div>
+            </form>
           </div>
-          <div class="modal__input__subtittle">
-            Оставьте заявку и наш менеджер свяжется с вами в течение 10 -15
-            минут
-          </div>
-          <div class="modal__main__form">
-            <input type="text" name="name" placeholder="Ваше имя*" required />
-            <input type="text" name="email" placeholder="E-mail*" required />
-            <input type="text" name="phone" placeholder="+7(___)" />
-            <textarea
-              name="message"
-              placeholder="Ваш вопрос*"
-              rows="3"
-            ></textarea>
-          </div>
-          <div class="modal__main__button">
-            <div class="header__buttons">
-              <button class="header__buttons-query">
-                <span>ОСТАВИТЬ ЗАЯВКУ</span>
-              </button>
-              <span class="header__buttons-dummy"></span>
-            </div>
-            <span class="policy">
-              Нажимая на кнопку “Оставить заявку” вы соглашаетесь <br /><a
-                href="#"
-                >с “Пользовательским соглашением”</a
-              >
-            </span>
-          </div>
-        </div>
-      </form>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>

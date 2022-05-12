@@ -104,11 +104,11 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
+  Object(_modules_modals__WEBPACK_IMPORTED_MODULE_2__["default"])();
   Object(_modules_sliders__WEBPACK_IMPORTED_MODULE_0__["default"])('.main__slider__nav__item1', '.main__slider__item1', '.main__slider__item2', '.main__slider__item3');
   Object(_modules_sliders__WEBPACK_IMPORTED_MODULE_0__["default"])('.main__slider__nav__item2', '.main__slider__item1', '.main__slider__item2', '.main__slider__item3');
   Object(_modules_sliders__WEBPACK_IMPORTED_MODULE_0__["default"])('.main__slider__nav__item3', '.main__slider__item1', '.main__slider__item2', '.main__slider__item3');
   Object(_modules_showMoreCards__WEBPACK_IMPORTED_MODULE_1__["default"])('.loadMore', '#cards .cards__wrapper');
-  Object(_modules_modals__WEBPACK_IMPORTED_MODULE_2__["default"])();
 });
 
 /***/ }),
@@ -123,35 +123,49 @@ window.addEventListener('DOMContentLoaded', () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 const modals = () => {
+  let btnPressed = false;
+
   function bindModal(triggerSelector, modalSelector, closeSelector) {
-    const trigger = document.querySelector(triggerSelector),
+    let destroy = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+    const trigger = document.querySelectorAll(triggerSelector),
           modal = document.querySelector(modalSelector),
           close = document.querySelector(closeSelector),
-          windows = document.querySelector('[data-modal]'),
+          windows = document.querySelectorAll('[data-modal]'),
           scroll = calcScroll();
-    console.log(trigger);
-    console.log(modal);
-    console.log(close);
-    console.log(windows);
-    trigger.addEventListener('click', e => {
-      if (e.target) {
-        e.preventDefault();
-      }
+    trigger.forEach(item => {
+      item.addEventListener('click', e => {
+        if (e.target) {
+          e.preventDefault();
+        }
 
-      windows.style.display = 'none';
-      modal.style.display = "block";
-      document.body.style.overflow = "hidden";
-      document.body.style.marginRight = `${scroll}px`;
+        btnPressed = true;
+
+        if (destroy) {
+          item.remove();
+        }
+
+        windows.forEach(item => {
+          item.style.display = 'none';
+          item.classList.add('animated', 'fadeIn');
+        });
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+        document.body.style.marginRight = `${scroll}px`;
+      });
     });
     close.addEventListener('click', () => {
-      windows.style.display = 'none';
+      windows.forEach(item => {
+        item.style.display = 'none';
+      });
       modal.style.display = "none";
       document.body.style.overflow = "";
       document.body.style.marginRight = `0px`;
     });
     modal.addEventListener('click', e => {
       if (e.target === modal) {
-        windows.style.display = 'none';
+        windows.forEach(item => {
+          item.style.display = 'none';
+        });
         modal.style.display = "none";
         document.body.style.overflow = "";
         document.body.style.marginRight = `0px`;
@@ -159,10 +173,28 @@ const modals = () => {
     });
   }
 
+  function showModalByTime(selector, time) {
+    setTimeout(function () {
+      let display;
+      document.querySelectorAll('[data-modal]').forEach(item => {
+        if (getComputedStyle(item).display !== 'none') {
+          display = "block";
+        }
+      });
+
+      if (!display) {
+        document.querySelector(selector).style.display = 'block';
+        document.body.style.overflow = "hidden";
+        let scroll = calcScroll();
+        document.body.style.marginRight = `${scroll}px`;
+      }
+    }, time);
+  }
+
   function calcScroll() {
     let div = document.createElement('div');
-    div.style.width = '600px';
-    div.style.height = '600px';
+    div.style.width = '50px';
+    div.style.height = '50px';
     div.style.overflowY = 'scroll';
     div.style.visibility = 'hidden';
     document.body.appendChild(div);
@@ -171,7 +203,17 @@ const modals = () => {
     return scrollWidth;
   }
 
-  bindModal('.header__buttons-query', '.modal__wrapp', '.modal__input__tittle__close');
+  function openByScroll(selector) {
+    window.addEventListener('scroll', () => {
+      let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+
+      if (!btnPressed && window.pageYOffset + document.documentElement.clientHeight >= scrollHeight) {
+        document.querySelector(selector).click();
+      }
+    });
+  }
+
+  bindModal('.query', '.popup-design', '.modal__input__tittle__close');
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (modals);
