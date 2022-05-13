@@ -41,9 +41,12 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        align-items: center;
+        align-items: flex-start;
         margin: 76px;
         &__tittle {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
             width: 100%;
             font-family: 'Montserrat';
             font-style: normal;
@@ -56,10 +59,9 @@
                 display: inline-block;
                 width: 50px;
                 height: 50px;
-                border: 1px solid #2B2B2B;
+                border: 1px solid #808080;
                 transform: skew(-20deg);
                 text-align: center;
-                float: right;
                 img {
                     width: 30px;
                     height: 30px;
@@ -76,6 +78,7 @@
             font-size: 14px;
             line-height: 150%;
             color: #808080;
+            text-align: left;
         }
         .policy {
             font-family: 'Montserrat';
@@ -99,6 +102,21 @@
             background: #131313;
             margin-top: 10px;
             padding-left: 16px;
+            &::-webkit-input-placeholder {
+                color: #FFFFFF;
+            }
+            &::-moz-placeholder {
+                color: #FFFFFF;
+            }
+            &:-ms-input-placeholder {
+                color: #FFFFFF;
+            }
+            &::-ms-input-placeholder {
+                color: #FFFFFF;
+            }
+            &::placeholder {
+                color: #FFFFFF;
+            }
         }
         textarea {
             height: 120px;
@@ -107,6 +125,7 @@
         input:focus, textarea:focus {
             border: 1px solid #FFFFFF;
         }
+        
     }
     &__main__button {
         width: 100%;

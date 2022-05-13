@@ -11,7 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Mulish:wght@600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <div class="container">
@@ -80,7 +81,7 @@
         </div>
       </main>
       <section class="cards" id="cards">
-        <h1>Карточки</h1>
+        <div>Карточки</div>
         <div class="cards__wrapper">
           <div class="card__item">
             <img src="./assets/img/Bitmap.png" alt />
@@ -125,7 +126,7 @@
             <button>Continue reading</button>
           </div>
           <div class="card__item">
-            <img src="./assets/img/Your images here.png" alt />
+            <img src="./assets/img/YourImagesHere.png" alt />
             <div class="card__item__text">
               <h3>bridge</h3>
               <h4>How to increase your productivity with a Music</h4>
@@ -139,7 +140,7 @@
             <button>Continue reading</button>
           </div>
           <div class="card__item">
-            <img src="./assets/img/Your images here(1).png" alt />
+            <img src="./assets/img/YourImagesHere(1).png" alt />
             <div class="card__item__text">
               <h3>bridge</h3>
               <h4>How to increase your productivity with a Music</h4>
@@ -153,7 +154,7 @@
             <button>Continue reading</button>
           </div>
           <div class="card__item">
-            <img src="./assets/img/Your images here(2).png" alt />
+            <img src="./assets/img/YourImagesHere(2).png" alt />
             <div class="card__item__text">
               <h3>bridge</h3>
               <h4>How to increase your productivity with a Music</h4>
@@ -167,7 +168,7 @@
             <button>Continue reading</button>
           </div>
           <div class="card__item">
-            <img src="./assets/img/Your images here(3).png" alt />
+            <img src="./assets/img/YourImagesHere(3).png" alt />
             <div class="card__item__text">
               <h3>bridge</h3>
               <h4>How to increase your productivity with a Music</h4>
@@ -181,7 +182,7 @@
             <button>Continue reading</button>
           </div>
           <div class="card__item">
-            <img src="./assets/img/Your images here(4).png" alt />
+            <img src="./assets/img/YourImagesHere(4).png" alt />
             <div class="card__item__text">
               <h3>bridge</h3>
               <h4>How to increase your productivity with a Music</h4>
@@ -195,7 +196,7 @@
             <button>Continue reading</button>
           </div>
           <div class="card__item">
-            <img src="./assets/img/Your images here(5).png" alt />
+            <img src="./assets/img/YourImagesHere(5).png" alt />
             <div class="card__item__text">
               <h3>bridge</h3>
               <h4>How to increase your productivity with a Music</h4>
@@ -209,7 +210,7 @@
             <button>Continue reading</button>
           </div>
           <div class="card__item">
-            <img src="./assets/img/Your images here(6).png" alt />
+            <img src="./assets/img/YourImagesHere(6).png" alt />
             <div class="card__item__text">
               <h3>bridge</h3>
               <h4>How to increase your productivity with a Music</h4>
@@ -233,47 +234,61 @@
     </div>
     <div class="popup-design fixed-overlay__modal" data-modal>
       <div class="popup-dialog">
-          <div>
-            <form class="modal">
-              <img class="modal__img" src="./assets/img/ModalRectangle5.png" alt />
-              <div class="modal__input">
-                <div class="modal__input__tittle">
-                  Оставьте заявку
-                  <div class="modal__input__tittle__close">
-                    <img src="assets/icons/ant-design_close-outlined.svg" alt />
-                  </div>
-                </div>
-                <div class="modal__input__subtittle">
-                  Оставьте заявку и наш менеджер свяжется с вами в течение 10 -15
-                  минут
-                </div>
-                <div class="modal__main__form">
-                  <input type="text" name="name" placeholder="Ваше имя*" required />
-                  <input type="text" name="email" placeholder="E-mail*" required />
-                  <input type="text" name="phone" placeholder="+7(___)" />
-                  <textarea
-                    name="message"
-                    placeholder="Ваш вопрос*"
-                    rows="3"
-                  ></textarea>
-                </div>
-                <div class="modal__main__button">
-                  <div class="header__buttons">
-                    <button class="header__buttons-query query">
-                      <span>ОСТАВИТЬ ЗАЯВКУ</span>
-                    </button>
-                    <span class="header__buttons-dummy"></span>
-                  </div>
-                  <span class="policy">
-                    Нажимая на кнопку “Оставить заявку” вы соглашаетесь <br /><a
-                      href="#"
-                      >с “Пользовательским соглашением”</a
-                    >
-                  </span>
+        <div>
+          <form class="modal">
+            <img
+              class="modal__img"
+              src="./assets/img/ModalRectangle5.png"
+              alt
+            />
+            <div class="modal__input">
+              <div class="modal__input__tittle">
+                Оставьте заявку
+                <div class="modal__input__tittle__close">
+                  <img src="assets/icons/ant-design_close-outlined.svg" alt />
                 </div>
               </div>
-            </form>
-          </div>
+              <div class="modal__input__subtittle">
+                Оставьте заявку и наш менеджер свяжется с вами в течение 10 -15
+                минут
+              </div>
+              <div class="modal__main__form">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Ваше имя*"
+                  required
+                />
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="E-mail*"
+                  required
+                />
+                <input type="text" name="phone" placeholder="+7(___)" />
+                <textarea
+                  name="message"
+                  placeholder="Ваш вопрос*"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="modal__main__button">
+                <div class="header__buttons">
+                  <button class="header__buttons-query query">
+                    <span>ОСТАВИТЬ ЗАЯВКУ</span>
+                  </button>
+                  <span class="header__buttons-dummy"></span>
+                </div>
+                <span class="policy">
+                  Нажимая на кнопку “Оставить заявку” вы соглашаетесь <br /><a
+                    href="#"
+                    >с “Пользовательским соглашением”</a
+                  >
+                </span>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>

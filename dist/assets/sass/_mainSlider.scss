@@ -1,5 +1,5 @@
 .main {
-    background: url(../assets/img/Rectangle5.png) center (center/cover) no-repeat;
+    background: url(../img/Rectangle5.png) center (center/cover) no-repeat;
     transition-property: background-image;
     transition-duration: 1s;
     border-top-left-radius: 50px;
@@ -14,7 +14,7 @@
         grid-row-end: 2;
         display: flex;
         flex-flow: column wrap;
-        justify-content: end;
+        justify-content: flex-end;
         align-items: flex-end;
         padding-bottom: 170px;
         padding-right: 100px;

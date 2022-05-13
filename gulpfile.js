@@ -14,9 +14,9 @@ gulp.task("copy-html", () => {
 });
 
 gulp.task("styles", function() {
-    return gulp.src("src/sass/style.+(scss|sass)")
+    return gulp.src("src/assets/sass/style.+(scss|sass)")
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(gulp.dest("dist/css"))
+        .pipe(gulp.dest("dist/assets/css"))
         .pipe(browsersync.stream());
 });
 
@@ -61,14 +61,14 @@ gulp.task("copy-assets", () => {
 gulp.task("watch", () => {
     browsersync.init({
 		server: "./dist/",
-		port: 4000,
+		port: 3000,
 		notify: true
     });
     
     gulp.watch("./src/index.html", gulp.parallel("copy-html"));
     gulp.watch("./src/assets/**/*.*", gulp.parallel("copy-assets"));
     gulp.watch("./src/js/**/*.js", gulp.parallel("build-js"));
-    gulp.watch("src/sass/**/*.+(scss|sass|css)", gulp.parallel("styles"));
+    gulp.watch("src/assets/sass/**/*.+(scss|sass|css)", gulp.parallel("styles"));
 });
 
 gulp.task("build", gulp.parallel("copy-html", "styles", "copy-assets", "build-js"));
