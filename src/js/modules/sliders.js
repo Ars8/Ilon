@@ -6,7 +6,10 @@ const sliders = (triggerSelector, sliderSelector1, sliderSelector2, sliderSelect
           activeSlide = document.querySelector('.main');
           slider1.style.display = "flex";
 
-    trigger.addEventListener('click', () => {
+    trigger.addEventListener('click', (e) => {
+        if (e.target) {
+            e.preventDefault();
+        };
         switch (trigger.className) {
             case 'main__slider__nav__item1':
                 activeSlide.style.backgroundImage = "url('../assets/img/Rectangle5.png')";

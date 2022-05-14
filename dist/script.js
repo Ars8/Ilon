@@ -98,6 +98,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_sliders__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/sliders */ "./src/js/modules/sliders.js");
 /* harmony import */ var _modules_showMoreCards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/showMoreCards */ "./src/js/modules/showMoreCards.js");
 /* harmony import */ var _modules_modals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modals */ "./src/js/modules/modals.js");
+/* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/burger */ "./src/js/modules/burger.js");
+
 
 
 
@@ -109,7 +111,43 @@ window.addEventListener('DOMContentLoaded', () => {
   Object(_modules_sliders__WEBPACK_IMPORTED_MODULE_0__["default"])('.main__slider__nav__item2', '.main__slider__item1', '.main__slider__item2', '.main__slider__item3');
   Object(_modules_sliders__WEBPACK_IMPORTED_MODULE_0__["default"])('.main__slider__nav__item3', '.main__slider__item1', '.main__slider__item2', '.main__slider__item3');
   Object(_modules_showMoreCards__WEBPACK_IMPORTED_MODULE_1__["default"])('.loadMore', '#cards .cards__wrapper');
+  Object(_modules_burger__WEBPACK_IMPORTED_MODULE_3__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/burger.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/burger.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const burger = () => {
+  const menu = document.querySelector('.header__nav'),
+        menuItem = document.querySelectorAll('.header__nav_item'),
+        hamburger = document.querySelector('.hamburger');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('hamburger_active');
+    menu.classList.toggle('header__nav_active');
+
+    if (hamburger.classList.contains('hamburger_active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  });
+  menuItem.forEach(item => {
+    item.addEventListener('click', () => {
+      hamburger.classList.toggle('hamburger_active');
+      menu.classList.toggle('header__nav_active');
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (burger);
 
 /***/ }),
 
@@ -283,7 +321,13 @@ const sliders = (triggerSelector, sliderSelector1, sliderSelector2, sliderSelect
         slider3 = document.querySelector(sliderSelector3),
         activeSlide = document.querySelector('.main');
   slider1.style.display = "flex";
-  trigger.addEventListener('click', () => {
+  trigger.addEventListener('click', e => {
+    if (e.target) {
+      e.preventDefault();
+    }
+
+    ;
+
     switch (trigger.className) {
       case 'main__slider__nav__item1':
         activeSlide.style.backgroundImage = "url('../assets/img/Rectangle5.png')";
