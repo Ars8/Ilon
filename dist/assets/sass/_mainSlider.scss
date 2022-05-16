@@ -7,7 +7,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    .main__slider__nav {
+    &__slider__nav {
         grid-column-start: 2;
         grid-column-end: 3;
         grid-row-start: 1;
@@ -56,5 +56,83 @@
         font-size: 16px;
         line-height: 150%;
         margin-bottom: 15px;
+    }    
+}
+@media (max-width: 1199px) {
+    .main__slider__item1,
+    .main__slider__item2,
+    .main__slider__item3 {
+        h1 {
+            font-size: 36px;
+        }
+    } 
+}
+@media (max-width: 991px) {
+    .main__slider__item1,
+    .main__slider__item2,
+    .main__slider__item3 {
+        h1 {
+            font-size: 30px;
+        }
+        .main__slider__item1__description-title {
+            font-size: 12px;
+            line-height: 120%;
+        }
+    } 
+}
+@media (max-width: 767px) {
+    .main__slider__item1,
+    .main__slider__item2,
+    .main__slider__item3 {
+        h1 {
+            font-size: 24px;
+        }
+        .main__slider__item1__description-title {
+            font-size: 10px;
+            line-height: 120%;
+        }
+    }
+    .main__slider__nav__item1,
+    .main__slider__nav__item2,
+    .main__slider__nav__item3 {
+        font-size: 12px;
+    }
+}
+@media (max-width: 575px) {
+    .main {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        height: 500px;
+        &__slider__item1,
+        &__slider__item2,
+        &__slider__item3 {
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 3;
+            h1 {
+                font-size: 18px;
+                padding: 0 10px 0 10px;
+            }
+            &__slider__item1__description-title {
+                font-size: 12px;
+            }    
+        }
+        &__slider__nav {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            padding: 0;
+            margin-top: 20px;
+            justify-content: center;
+            align-items: center;
+        }
     }    
 }

@@ -99,6 +99,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_showMoreCards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/showMoreCards */ "./src/js/modules/showMoreCards.js");
 /* harmony import */ var _modules_modals__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modals */ "./src/js/modules/modals.js");
 /* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/burger */ "./src/js/modules/burger.js");
+/* harmony import */ var _modules_checkTextInputs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/checkTextInputs */ "./src/js/modules/checkTextInputs.js");
+
 
 
 
@@ -112,6 +114,8 @@ window.addEventListener('DOMContentLoaded', () => {
   Object(_modules_sliders__WEBPACK_IMPORTED_MODULE_0__["default"])('.main__slider__nav__item3', '.main__slider__item1', '.main__slider__item2', '.main__slider__item3');
   Object(_modules_showMoreCards__WEBPACK_IMPORTED_MODULE_1__["default"])('.loadMore', '#cards .cards__wrapper');
   Object(_modules_burger__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_modules_checkTextInputs__WEBPACK_IMPORTED_MODULE_4__["default"])('[name="name"]');
+  Object(_modules_checkTextInputs__WEBPACK_IMPORTED_MODULE_4__["default"])('[name="message"]');
 });
 
 /***/ }),
@@ -128,15 +132,21 @@ __webpack_require__.r(__webpack_exports__);
 const burger = () => {
   const menu = document.querySelector('.header__nav'),
         menuItem = document.querySelectorAll('.header__nav_item'),
-        hamburger = document.querySelector('.hamburger');
+        hamburger = document.querySelector('.hamburger'),
+        btnForDesctop = document.querySelector('.btnForDesctop'),
+        btnForMobile = document.querySelector('.btnForMobile');
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('hamburger_active');
     menu.classList.toggle('header__nav_active');
 
     if (hamburger.classList.contains('hamburger_active')) {
       document.body.style.overflow = 'hidden';
+      btnForDesctop.style.display = 'none';
+      btnForMobile.style.display = 'flex';
     } else {
       document.body.style.overflow = '';
+      btnForDesctop.style.display = 'block';
+      btnForMobile.style.display = 'none';
     }
   });
   menuItem.forEach(item => {
@@ -148,6 +158,30 @@ const burger = () => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (burger);
+
+/***/ }),
+
+/***/ "./src/js/modules/checkTextInputs.js":
+/*!*******************************************!*\
+  !*** ./src/js/modules/checkTextInputs.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const checkTextInputs = selector => {
+  const txtInputs = document.querySelectorAll(selector);
+  txtInputs.forEach(input => {
+    input.addEventListener('keypress', function (e) {
+      if (e.key.match(/[^а-яё 0-9]/ig)) {
+        e.preventDefault();
+      }
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (checkTextInputs);
 
 /***/ }),
 
@@ -285,7 +319,7 @@ const showMoreStyles = (trigger, wrapper) => {
       let card = document.createElement('div');
       card.classList.add('card__item');
       card.innerHTML = `
-                    <img src="./assets/img/Your images here.png" alt />
+                    <img src="./assets/img/YourImagesHere.png" alt />
                     <div class="card__item__text">
                         <h3>bridge</h3>
                         <h4>${title}</h4>

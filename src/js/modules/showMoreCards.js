@@ -16,7 +16,7 @@ const showMoreStyles = (trigger, wrapper) => {
             card.classList.add('card__item');
         
             card.innerHTML = `
-                    <img src="./assets/img/Your images here.png" alt />
+                    <img src="./assets/img/YourImagesHere.png" alt />
                     <div class="card__item__text">
                         <h3>bridge</h3>
                         <h4>${title}</h4>

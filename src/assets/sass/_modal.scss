@@ -11,6 +11,15 @@
 .popup-dialog {
     display: inline-block;
     vertical-align: middle;
+    .popup-skew {
+        position: relative;
+        z-index: 12;
+        overflow: hidden;
+        width: 80vw;
+        height: 80vh;
+        transform: skewX(-5deg);
+        transition: all 0.15s;
+    }
 }
 .popup-design {
     z-index: 20;
@@ -26,23 +35,27 @@
     margin: auto;
 }
 .modal {
-    height: 80vh;
-    width: 80vw;
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: stretch;
     background-color: rgba(23, 22, 22, 0.8);
+    position: absolute;
+    left: 50%;
+    width: 110%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    transform: skewX(5deg) translateX(-50%);
     img {
         height: 80vh;
-
     }
     &__input {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-start;
-        margin: 76px;
+        margin: 0 100px 0 30px;
         &__tittle {
             display: flex;
             flex-direction: row;
@@ -62,12 +75,16 @@
                 border: 1px solid #808080;
                 transform: skew(-20deg);
                 text-align: center;
+                cursor: pointer;
                 img {
                     width: 30px;
                     height: 30px;
                     margin-top: 10px;
                     transform: skew(20deg);
                 } 
+            }
+            &__close:hover {
+                border: 1px solid #cbcaca;
             }                       
         }
         &__subtittle {
@@ -100,6 +117,7 @@
             font-size: 16px;
             line-height: 20px;
             background: #131313;
+            color: #FFFFFF;
             margin-top: 10px;
             padding-left: 16px;
             &::-webkit-input-placeholder {
@@ -147,4 +165,86 @@
             }
         }
     }
+}
+@media (max-width: 1399px) {
+    .modal {
+        &__input {
+            &__tittle {
+                font-size: 32px;
+            }
+        }
+    }
+}
+@media (max-width: 1199px) {
+    .modal {
+        &__input {
+            &__tittle {
+                font-size: 20px;
+                &__close {
+                    width: 30px;
+                    height: 30px;
+                    text-align: center;
+                    margin-top: 10px;
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        margin: 5px 2px 7px 2px;
+                    } 
+                }
+            }
+        }
+    }
+}
+@media (max-width: 991px) {
+    .modal {
+        &__img {
+            display: none;
+        }
+        &__input {
+            justify-content: center;
+            align-items: center;
+            margin: 0 100px 0 100px;
+        }
+    }
+}
+@media (max-width: 767px) {
+    .modal {
+        &__main {
+            &__button {
+                flex-direction: column;
+            }
+        }
+        &__tittle {
+            font-size: 30px;
+        }
+        &__subtittle {
+            font-size: 30px;
+        }
+        &__main__form {
+            input, textarea {
+                height: 35px;
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+            textarea {
+                height: 80px;
+                padding-top: 13px;
+            }            
+        }
+    }
+}
+@media (max-width: 575px) {
+    .popup-dialog {
+        .popup-skew {
+            transform: none;
+        }
+    }
+    .modal {
+        transform: none;
+        left: 0;
+        width: 100%;
+        &__input {
+            margin: 0 20px 0 20px;
+        }
+    }    
 }

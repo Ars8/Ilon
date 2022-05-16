@@ -4,6 +4,16 @@
   justify-content: center;
   align-items: flex-start;
   margin: 100px;
+  &_title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 51px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 53px;
+  }
   &__wrapper {
     display: flex;
     flex-flow: row wrap;
@@ -78,5 +88,25 @@
       color: #ffffff;
       margin-bottom: 30px;
     }
+  }
+}
+@media (max-width: 767px) {
+  .cards_title {
+    font-size: 36px;
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 575px) {
+  .cards {
+    margin: 0;
+    &_title {
+      font-size: 30px;
+    }
+  }  
+}
+@media (max-width: 375px) {
+  .cards_title {
+    font-size: 26px;
   }
 }
